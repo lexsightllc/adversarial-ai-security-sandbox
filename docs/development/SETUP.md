@@ -47,7 +47,7 @@ Create a `.env` file in the root directory of the project. This file will hold e
 
 ```
 # Example .env content
-# FLASK_APP=services/api-gateway/main.py
+# FLASK_APP=services/api_gateway/main.py
 # FLASK_DEBUG=1
 # DATABASE_URL=postgresql://user:password@localhost:5432/adversarial_sandbox_db
 # RABBITMQ_URL=amqp://guest:guest@localhost:5672/
@@ -72,22 +72,22 @@ Each backend service (located in `services/`) will have its own `requirements.tx
 
 1.  **Install Python Dependencies for Each Service:**
     ```bash
-    # Example for api-gateway
-    pip install -r services/api-gateway/requirements.txt
-    # Repeat for model-service, attack-service, etc.
+    # Example for api_gateway
+    pip install -r services/api_gateway/requirements.txt
+    # Repeat for model_service, attack_service, etc.
     ```
 2.  **Run Migrations (if applicable):**
     ```bash
     # Example for API Gateway (adjust based on ORM/framework)
-    python services/api-gateway/manage.py migrate
+    python services/api_gateway/manage.py migrate
     ```
 3.  **Run Services Locally (for development):**
     ```bash
     # Example for API Gateway
-    python services/api-gateway/main.py
+    python services/api_gateway/main.py
     # Open new terminals for other services:
-    # python services/model-service/main.py
-    # python services/attack-service/main.py
+    # python services/model_service/main.py
+    # python services/attack_service/main.py
     ```
     *Alternatively, you can run all services via a comprehensive `docker-compose.dev.yml`.*
 
@@ -112,7 +112,7 @@ Each backend service (located in `services/`) will have its own `requirements.tx
 - **Branching:** Create a new branch for each feature or bug fix: `git checkout -b feature/your-feature-name`.
 - **Committing:** Make small, atomic commits with clear messages.
 - **Testing:** Run unit and integration tests frequently.
-    - `pytest tests/unit/api-gateway/` (example)
+- `pytest tests/test_api_gateway.py` (example)
 - **Code Review:** Submit pull requests (PRs) to `main` for review.
 - **Linting & Formatting:** Ensure code adheres to defined style guides (e.g., Black for Python, Prettier for JS).
 

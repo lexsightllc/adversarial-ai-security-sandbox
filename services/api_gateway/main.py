@@ -112,6 +112,21 @@ class AttackResultSchema(BaseModel):
     class Config:
         from_attributes = True
 
+class AttackLaunchRequest(BaseModel):
+    model_id: str
+    attack_method_id: str
+    input_data: Any
+    target_label: Optional[str] = None
+    attack_parameters: Optional[Dict[str, Any]] = None
+    callback_url: Optional[str] = None
+
+
+class AttackLaunchResponse(BaseModel):
+    attack_id: str
+    status: str
+    message: str
+    estimated_completion_time_seconds: Optional[int] = None
+
 # --- Middleware for metrics collection ---
 @app.middleware("http")
 async def add_process_time_header(request: Request, call_next):

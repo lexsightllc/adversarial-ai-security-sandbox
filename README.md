@@ -11,9 +11,9 @@ To provide a comprehensive platform for developing, testing, and demonstrating a
 This project adopts a microservices architecture, containerized with Docker and orchestrated by Kubernetes.
 
 **Key Services:**
-- `api-gateway`: Handles incoming requests, authentication, and routing.
-- `model-service`: Manages AI model loading, inference, and versioning.
-- `attack-service`: Orchestrates and executes various adversarial attacks.
+- `api_gateway`: Handles incoming requests, authentication, and routing.
+- `model_service`: Manages AI model loading, inference, and versioning.
+- `attack_service`: Orchestrates and executes various adversarial attacks.
 
 ## Getting Started (Local Development)
 
@@ -28,9 +28,9 @@ To run the automated tests locally:
 3.  Install top-level test dependencies (pytest, httpx, etc.): `pip install pytest httpx`
 4.  Install dependencies for each service locally (if you haven't already for local development):
     ```bash
-    pip install -r services/api-gateway/requirements.txt
-    pip install -r services/model-service/requirements.txt
-    pip install -r services/attack-service/requirements.txt
+    pip install -r services/api_gateway/requirements.txt
+    pip install -r services/model_service/requirements.txt
+    pip install -r services/attack_service/requirements.txt
     ```
     (Note: `textattack` and `torch` can be large. For quicker test runs, consider mocking their dependencies or running tests in dedicated CI environments where dependencies are pre-cached.)
 5.  Run all tests: `pytest tests/`

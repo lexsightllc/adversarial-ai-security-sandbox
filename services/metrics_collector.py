@@ -1,6 +1,7 @@
+import threading
 import time
 from collections import defaultdict
-import threading
+from typing import Any, Dict
 
 class MetricsCollector:
     _instance = None
