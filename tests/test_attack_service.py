@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from fastapi.testclient import TestClient
 from services.attack_service.main import app
 from sqlalchemy import create_engine

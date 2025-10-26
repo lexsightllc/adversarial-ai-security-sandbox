@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from fastapi import FastAPI, HTTPException, status, Depends, Query, Request, Response
 from pydantic import BaseModel
 import uuid

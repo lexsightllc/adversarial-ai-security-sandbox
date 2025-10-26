@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from fastapi.testclient import TestClient
 from services.api_gateway.main import (
     ACCESS_TOKEN_EXPIRE_MINUTES,

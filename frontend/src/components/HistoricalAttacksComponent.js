@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MPL-2.0
+
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
