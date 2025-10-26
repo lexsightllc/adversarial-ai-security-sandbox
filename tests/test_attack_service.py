@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from services.attack-service.main import app
+from services.attack_service.main import app
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -70,7 +70,7 @@ class MockRemoteModelWrapper:
         import numpy as np
         return np.array(predictions)
 
-services.attack-service.main.remote_model_wrapper_instance = MockRemoteModelWrapper()
+services.attack_service.main.remote_model_wrapper_instance = MockRemoteModelWrapper()
 
 
 def test_read_root():

@@ -20,7 +20,7 @@ class Model(Base):
     description = Column(String, nullable=True)
     status = Column(String, default="active")
     model_file_url = Column(String, nullable=True)
-    metadata = Column(JSON, nullable=True)
+    metadata_data = Column("metadata", JSON, nullable=True)
     input_schema = Column(JSON, nullable=True)
     output_schema = Column(JSON, nullable=True)
     metrics = Column(JSON, nullable=True)
@@ -29,6 +29,18 @@ class Model(Base):
 
     def __repr__(self):
         return f"<Model(id='{self.id}', name='{self.name}', type='{self.type}')>"
+
+
+def _get_model_metadata(self):
+    return self.metadata_data
+
+
+def _set_model_metadata(self, value):
+    self.metadata_data = value
+
+
+Model.metadata = property(_get_model_metadata, _set_model_metadata)
+
 
 class AttackResult(Base):
     __tablename__ = "attack_results"

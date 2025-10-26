@@ -1,5 +1,11 @@
 from fastapi.testclient import TestClient
-from services.model-service.main import app, load_model_instance, PredictionRequest, ModelCreate, model_cache 
+from services.model_service.main import (
+    ModelCreate,
+    PredictionRequest,
+    app,
+    load_model_instance,
+    model_cache,
+)
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base

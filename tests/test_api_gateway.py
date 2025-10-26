@@ -1,5 +1,9 @@
 from fastapi.testclient import TestClient
-from services.api-gateway.main import app, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
+from services.api_gateway.main import (
+    ACCESS_TOKEN_EXPIRE_MINUTES,
+    app,
+    create_access_token,
+)
 from datetime import timedelta
 import time
 

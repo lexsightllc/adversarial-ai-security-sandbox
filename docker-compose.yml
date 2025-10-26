@@ -4,7 +4,7 @@ services:
   # API Gateway Service
   api-gateway:
     build:
-      context: ./services/api-gateway
+      context: ./services/api_gateway
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -20,7 +20,7 @@ services:
   # Model Service
   model-service:
     build:
-      context: ./services/model-service
+      context: ./services/model_service
       dockerfile: Dockerfile
     ports:
       - "8001:8001"
@@ -37,7 +37,7 @@ services:
   # Attack Service
   attack-service:
     build:
-      context: ./services/attack-service
+      context: ./services/attack_service
       dockerfile: Dockerfile
     ports:
       - "8002:8002"
@@ -101,7 +101,7 @@ services:
   # New: Webhook Listener Service
   webhook-listener:
     build:
-      context: ./services/webhook-listener
+      context: ./services/webhook_listener
       dockerfile: Dockerfile
     ports:
       - "8003:8003"
