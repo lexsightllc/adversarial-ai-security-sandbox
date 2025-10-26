@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from sqlalchemy import create_engine, Column, String, Float, DateTime, Boolean, JSON, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """Top-level package for backend service modules."""
 
 __all__ = [

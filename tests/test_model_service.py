@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from fastapi.testclient import TestClient
 from services.model_service.main import (
     ModelCreate,

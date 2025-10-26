@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from flask import Flask, request, jsonify
 import logging
 import os

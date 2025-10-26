@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 # Use an official Python runtime as a parent image
 FROM python:3.9-slim-buster
 

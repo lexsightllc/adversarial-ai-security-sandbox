@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MPL-2.0
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import PredictionComponent from './components/PredictionComponent';

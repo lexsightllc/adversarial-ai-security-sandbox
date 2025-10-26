@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from fastapi import FastAPI, Depends, HTTPException, status, Query, Request, Response
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 import threading
 import time
 from collections import defaultdict

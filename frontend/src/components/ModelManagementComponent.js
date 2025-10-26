@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MPL-2.0
+
 import React, { useState, useEffect } from 'react';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';

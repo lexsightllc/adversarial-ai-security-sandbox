@@ -1,0 +1,16 @@
+ProjectName © 2025 Augusto 'Guto' Ochoa Ughini
+
+This project is licensed under the Mozilla Public License 2.0. This NOTICE file must be included with any redistributions of the software in source or binary form. Distribution artifacts should embed this NOTICE alongside the LICENSE.
+
+Third-party notices:
+- React (MIT License) © Meta Platforms, Inc. and contributors.
+- FastAPI (MIT License) © Sebastián Ramírez and contributors.
+- TextAttack (MIT License) © TextAttack Developers.
+- Transformers (Apache License 2.0) © Hugging Face, Inc. and contributors.
+- PyTorch (BSD-style License) © Meta Platforms, Inc. and contributors.
+- Recharts (MIT License) © Recharts contributors.
+- SQLAlchemy (MIT License) © SQLAlchemy authors.
+- Flask (BSD-3-Clause License) © Pallets Projects.
+
+Each third-party component remains governed by its respective license. Please consult the relevant project documentation for complete licensing details.
+

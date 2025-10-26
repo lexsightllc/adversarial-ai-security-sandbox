@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: MPL-2.0
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adversarial-ai-security-sandbox"
+version = "0.1.0"
+description = "Microservices sandbox for adversarial AI security experiments."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MPL-2.0"}
+classifiers = [
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Programming Language :: Python :: 3",
+]
+

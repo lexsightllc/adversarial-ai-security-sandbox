@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 name: CI/CD Pipeline - Build, Test, Scan & Deploy
 
 on:
@@ -91,8 +93,37 @@ jobs:
           # cd frontend && npm install && npm test -- --ci --watchAll=false
         fi
 
+  license-compliance:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install REUSE tooling
+      run: |
+        python -m pip install --upgrade pip
+        pip install reuse
+
+    - name: Verify SPDX headers with REUSE
+      run: reuse lint
+
+    - name: Install ScanCode Toolkit
+      run: |
+        python -m pip install scancode-toolkit
+
+    - name: Run ScanCode license scan
+      run: |
+        scancode --license --summary-verbose --json scancode-report.json .
+
+    - name: Upload ScanCode report
+      uses: actions/upload-artifact@v4
+      with:
+        name: scancode-license-report
+        path: scancode-report.json
+
   deploy:
-    needs: build-and-test # Depends on successful build and test of all services
+    needs: [build-and-test, license-compliance] # Depends on successful build/tests and license compliance
     runs-on: ubuntu-latest
     environment: 
       name: development # Example environment, could be staging, production

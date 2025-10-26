@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """Pytest configuration for ensuring local packages are importable."""
 
 from __future__ import annotations
