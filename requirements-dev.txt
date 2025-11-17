@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Testing
+pytest==7.4.4
+pytest-cov==4.1.0
+pytest-asyncio==0.23.2
+pytest-mock==3.12.0
+
+# Type Checking
+mypy==1.8.0
+types-requests==2.31.0.10
+
+# Linting & Code Quality
+pylint==3.0.3
+flake8==6.1.0
+black==23.12.1
+isort==5.13.2
+
+# Security Scanning
+bandit==1.7.6
+safety==2.3.5
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+
+# Development Utilities
+ipython==8.19.0
+ipdb==0.13.13
