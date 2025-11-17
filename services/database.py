@@ -1,16 +1,54 @@
 # SPDX-License-Identifier: MPL-2.0
 
-from sqlalchemy import create_engine, Column, String, Float, DateTime, Boolean, JSON, Integer
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from __future__ import annotations
+
 from datetime import datetime
 import os
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@postgres:5432/adversarial_sandbox_db")
+from sqlalchemy import Column, String, Float, DateTime, Boolean, JSON, Integer, create_engine, event
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import QueuePool
 
-engine = create_engine(DATABASE_URL)
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql://user:password@postgres:5432/adversarial_sandbox_db"
+)
+
+# Configure connection pooling for better performance
+engine = create_engine(
+    DATABASE_URL,
+    poolclass=QueuePool,
+    pool_size=int(os.getenv("DB_POOL_SIZE", "20")),
+    max_overflow=int(os.getenv("DB_MAX_OVERFLOW", "10")),
+    pool_recycle=int(os.getenv("DB_POOL_RECYCLE", "3600")),  # Recycle connections after 1 hour
+    pool_pre_ping=True,  # Test connections before using them
+    echo=os.getenv("DB_ECHO", "False").lower() == "true",
+    connect_args={
+        "connect_timeout": 10,
+        "options": "-c statement_timeout=30000",  # 30 second statement timeout
+    }
+)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+
+
+# Event listeners for connection pool management
+@event.listens_for(engine, "connect")
+def set_sqlite_pragma(dbapi_conn, connection_record):
+    """Set SQLite-specific settings (for testing)."""
+    # This is useful for SQLite in-memory databases during tests
+    if "sqlite" in str(dbapi_conn):
+        cursor = dbapi_conn.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON")
+        cursor.close()
+
+
+@event.listens_for(engine, "pool_connect")
+def receive_pool_connect(dbapi_conn, connection_record):
+    """Log pool connection events."""
+    connection_record.info["pool_id"] = id(dbapi_conn)
 
 class Model(Base):
     __tablename__ = "models"

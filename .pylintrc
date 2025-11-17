@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: MPL-2.0
+
+[MASTER]
+jobs=4
+persistent=yes
+load-plugins=
+ignore=migrations,tests
+
+[MESSAGES CONTROL]
+disable=
+    missing-docstring,
+    too-few-public-methods,
+    duplicate-code,
+    fixme,
+    locally-disabled
+
+[FORMAT]
+max-line-length=120
+indent-string='    '
+
+[DESIGN]
+max-attributes=7
+max-arguments=5
+
+[VARIABLES]
+dummy-variables-rgx=_.*
+
+[LOGGING]
+logging-format-style=new
+
+[TYPECHECK]
+generated-members=tornado.*,numpy.*,torch.*

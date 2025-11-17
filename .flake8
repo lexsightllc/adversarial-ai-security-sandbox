@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: MPL-2.0
+
+[flake8]
+max-line-length = 120
+exclude =
+    .git,
+    __pycache__,
+    docs,
+    build,
+    dist,
+    .venv,
+    migrations,
+    .pytest_cache,
+    .mypy_cache
+ignore =
+    E203,
+    W503,
+    E501,
+    D100,
+    D101,
+    D102,
+    D103,
+    D104,
+    D105,
+    D106,
+    D107
+
+per-file-ignores =
+    __init__.py:F401,
+    tests/*:F401,D100,D101,D102,D103
+
+import-order-style = google
+application-import-names = services
